@@ -8,7 +8,7 @@ import template from './auth.html';
 import { name as DisplayNameFilter } from '../../filters/displayNameFilter';
 import { name as Login } from '../login/login';
 import { name as Register } from '../register/register';
-import { name as Fornitori } from '../fornitori/fornitori';
+import { name as Fornitori } from '../fornitori/fornitoriLista';
 import { name as Articoli } from '../articoli/articoli';
 import { name as Password } from '../password/password';
 
