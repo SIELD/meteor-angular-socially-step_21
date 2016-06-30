@@ -5,7 +5,7 @@ import { Parties } from './collection';
 
 if (Meteor.isServer) {
   Meteor.publish('parties', function(options, searchString) {
-    const selector = {
+    const selector_ = {
       $or: [{
         // the public parties
         $and: [{
@@ -35,7 +35,7 @@ if (Meteor.isServer) {
         }]
       }]
     };
-
+    const selector ={};
     if (typeof searchString === 'string' && searchString.length) {
       selector.name = {
         $regex: `.*${searchString}.*`,

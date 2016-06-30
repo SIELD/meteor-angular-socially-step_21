@@ -8,7 +8,8 @@ const name = 'fornitoriLista';
 const template = `
 
     <div class="page md-padding">
-       <div class="title"><h3>Lista fornitori</h3></div>
+        <div class="title"><h3>Lista fornitori</h3></div>
+        
         <div class="row">
             <form name="infoFornitori" layout="column" layout-fill layout-padding layout-margin>
                 <div class ="input-group">
@@ -19,15 +20,15 @@ const template = `
                     <md-button class="md-raised md-primary" ng-click="fornitoriLista.aggiungi()" aria-label="login" ng-disabled="fornitoriLista.infoFornitori.$invalid()">Aggiungi</md-button>
                 </div>
             </form>
-       </div>
-       
+        </div>
+        
         <div class="row">
             <div ng-repeat="fornitore in fornitoriLista.elencoFornitori">
-                <span class="md-headline" ui-sref="fornitoreDettaglio({ fornitoreID: fornitore._id })"> 
-                <span ng-repeat="(key, val) in fornitore">  <b>{{key}}:</b> {{val}}</span>
-                </span>
+                <span class="md-body-2" ui-sref="fornitoreDettaglio({ fornitoreId: fornitore._id })">
+                    {{fornitore.ragSociale}} 
+                </span> 
             </div>
-         </div>   
+        </div>   
         
     </div>
 `;
@@ -49,6 +50,7 @@ class FornitoriLista {
         this.error = '';
     }
     aggiungi() {
+        console.log(this)
         Fornitori.insert(this);
         if(this.done) {
             this.done();

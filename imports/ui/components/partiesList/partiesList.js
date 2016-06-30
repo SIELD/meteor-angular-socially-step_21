@@ -49,7 +49,7 @@ class PartiesList {
         return Counts.get('numberOfParties');
       },
       isLoggedIn() {
-        return !!Meteor.userId();
+        return true;//!!Meteor.userId();
       },
       currentUserId() {
         return Meteor.userId();
