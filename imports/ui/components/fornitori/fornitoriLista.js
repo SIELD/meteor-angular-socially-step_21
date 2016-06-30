@@ -16,22 +16,21 @@ const template = `
                  <input class="form-control" type="text" placeholder="ragione sociale" aria-label="ragSociale" required/>
                 </div>
                 <div class="button">
-                    <md-button class="md-raised md-primary" ng-click="fornitoreDettaglio.aggiungi()" aria-label="login" ng-disabled="fornitoreDettaglio.infoFornitori.$invalid()">Aggiungi</md-button>
+                    <md-button class="md-raised md-primary" ng-click="fornitoriLista.aggiungi()" aria-label="login" ng-disabled="fornitoriLista.infoFornitori.$invalid()">Aggiungi</md-button>
                 </div>
             </form>
        </div>
        
         <div class="row">
             <div ng-repeat="fornitore in fornitoriLista.elencoFornitori">
-                 
+                <span class="md-headline" ui-sref="fornitoreDettaglio({ fornitoreID: fornitore._id })"> 
                 <span ng-repeat="(key, val) in fornitore">  <b>{{key}}:</b> {{val}}</span>
-                
+                </span>
             </div>
          </div>   
         
     </div>
 `;
-
 class FornitoriLista {
     constructor($scope, $reactive, $state) {
         'ngInject';
@@ -48,6 +47,13 @@ class FornitoriLista {
         })
 
         this.error = '';
+    }
+    aggiungi() {
+        Fornitori.insert(this);
+        if(this.done) {
+            this.done();
+        }
+
     }
 }
 
