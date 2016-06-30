@@ -1,11 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-
 import { Accounts } from 'meteor/accounts-base';
 import { Fornitori } from '/imports/api/fornitori/collection';
-
-
 
 const name = 'fornitoriLista';
 const template = `
@@ -19,7 +16,7 @@ const template = `
                  <input class="form-control" type="text" placeholder="ragione sociale" aria-label="ragSociale" required/>
                 </div>
                 <div class="button">
-                    <md-button class="md-raised md-primary" ng-click="fornitoriLista.aggiungi()" aria-label="login" ng-disabled="fornitoriLista.infoFornitori.$invalid()">Aggiungi</md-button>
+                    <md-button class="md-raised md-primary" ng-click="fornitoreDettaglio.aggiungi()" aria-label="login" ng-disabled="fornitoreDettaglio.infoFornitori.$invalid()">Aggiungi</md-button>
                 </div>
             </form>
        </div>
@@ -52,18 +49,6 @@ class FornitoriLista {
 
         this.error = '';
     }
-    aggiungi() {
-        Accounts.createUser(this.credentials,
-            this.$bindToContext((err) => {
-                if (err) {
-                    this.error = err;
-                } else {
-                    this.$state.go('parties');
-                }
-             })
-         );
-    }
-
 }
 
 
