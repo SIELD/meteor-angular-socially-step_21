@@ -9,11 +9,8 @@ import { Fornitori } from '/imports/api/fornitori/collection';
 
 const name = 'fornitoriLista';
 const template = `
-<div>{{fornitoriLista}}</div>
-    <div ng-repeat="fornitore in fornitoriLista.elencoFornitori">
-        <span ng-repeat="(key, val) in fornitore">{{key}}:{{val}}</span>
-    </div>
-    <div class="page">
+
+    <div class="page md-padding">
        <div class="title"><h3>Lista fornitori</h3></div>
         <div class="row">
             <form name="infoFornitori" layout="column" layout-fill layout-padding layout-margin>
@@ -26,6 +23,15 @@ const template = `
                 </div>
             </form>
        </div>
+       
+        <div class="row">
+            <div ng-repeat="fornitore in fornitoriLista.elencoFornitori">
+                 
+                <span ng-repeat="(key, val) in fornitore">  <b>{{key}}:</b> {{val}}</span>
+                
+            </div>
+         </div>   
+        
     </div>
 `;
 
